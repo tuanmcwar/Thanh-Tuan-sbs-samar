@@ -280,6 +280,7 @@ header {
     width: 100%;
     height: 100%;
     margin-top: 200px;
+    position: relative;
 }
 
 .aboutUs__content--left {
@@ -299,6 +300,7 @@ header {
 .aboutUs__content--right {
     width: 50%;
     margin-top: -100px;
+    width: 50%;
 }
 
 .aboutUs__content--right-description {
@@ -527,19 +529,40 @@ header {
     cursor: pointer;
 }
 
+
+/* 
 .portfolio__item::before {
     content: "";
-    width: 100%;
+    width: 50%;
     height: 100%;
+    position: absolute;
     top: 0;
-    left: -150%;
+    left: -100%;
+    display: block;
     background: linear-gradient(to right, rgba(255, 255, 255, 0) 0, rgba(255, 255, 255, .3) 100%);
     transform: skewX(-25deg);
     transition: all .75s;
 }
 
 .portfolio__item:hover::before {
-    left: 125%;
+    left: 125%
+}
+ */
+
+.portfolio__item::before {
+    content: "";
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: -200%;
+    background: linear-gradient(to right, rgba(255, 255, 255, 0) 0, rgba(255, 255, 255, .3) 100%);
+    transform: skewX(-25deg);
+    transition: all 900ms;
+    position: absolute;
+}
+
+.portfolio__item:hover::before {
+    left: 200%;
 }
 
 .portfolio__content {
@@ -733,6 +756,7 @@ header {
 
 .cha {
     padding-bottom: 30px;
+    position: relative;
 }
 
 .testimonial__title {
@@ -778,7 +802,7 @@ header {
 }
 
 .cha .mySwiper1-test {
-    width: 30%;
+    width: 27%;
     height: 20%;
     box-sizing: border-box;
     padding: 10px 0;
@@ -835,30 +859,46 @@ header {
 }
 
 .arrow {
-    position: relative;
-    height: 30px;
-    width: 40px;
-    left: 0px;
-    transform: translateX(88%);
-    bottom: 11px;
+    content: "";
+    position: absolute;
+    right: 20px;
+    top: 76px;
+    cursor: pointer;
+    border-width: 30px;
+    border-style: solid;
+    border-color: var(--primary-color) transparent transparent transparent;
     opacity: 0;
-    transition: all 1s;
-    background-color: var(--primary-color);
+    /* transition: all 2s; */
+}
+
+.swiper-background::after {
+    content: " ";
+    height: 100%;
+    width: 10%;
+    top: 0;
+    position: absolute;
+    left: 0;
+    background: linear-gradient(to right, #fff 0, rgba(255, 255, 255, 0) 100%);
+    z-index: 2;
+}
+
+.swiper-background::before {
+    content: " ";
+    height: 100%;
+    width: 10%;
+    top: 0;
+    position: absolute;
+    right: 0;
+    background: linear-gradient(to left, #fff 0, rgba(255, 255, 255, 0) 100%);
+    z-index: 2;
 }
 
 .arrow {
     opacity: 0;
 }
 
-.arrow::before {
-    content: "";
-    position: absolute;
-    left: 0px;
-    background-image: url(https://cybersamar.vercel.app/img/pattern12.png);
-    background-position: bottom;
-    height: 100%;
-    width: 100%;
-}
+
+/*  */
 
 .testimonial__pic::after {
     content: "";
@@ -868,6 +908,8 @@ header {
     transform: translateX(-50%);
     opacity: 0;
     position: absolute;
+    /* opacity: 0;
+    transition: all 2s; */
 }
 
 .testimonial__pic::before {
@@ -878,6 +920,8 @@ header {
     left: 50%;
     opacity: 0;
     transform: translateX(-50%);
+    /* opacity: 0;
+    transition: all 2s; */
 }
 
 .testimonial__pic::before {
@@ -1045,10 +1089,11 @@ header {
 
 .la-comment {}
 
-.swiper {
+
+/* .swiper {
     width: 100%;
     height: 100%;
-}
+} */
 
 .swiper {
     width: 100%;
